@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-metrics
+  namespace: testing-monitoring
+  labels:
+    app: sample-metrics
+    example: monitoring-custom-metrics
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-metrics
+      example: monitoring-custom-metrics
+  template:
+    metadata:
+      labels:
+        app: sample-metrics
+        example: monitoring-custom-metrics
+    spec:
+      containers:
+        - name: sample-metrics
+          image: ko://github.com/aerfio/kyma-prometheus-adapter-poc/cmd
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: 100Mi
+              cpu: 100m
+            requests:
+              memory: 32Mi
+              cpu: 50m

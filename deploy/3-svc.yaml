@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sample-metrics-8080
+  namespace: testing-monitoring
+  labels:
+    example: monitoring-custom-metrics
+    app: sample-metrics
+spec:
+  selector:
+    app: sample-metrics
+  ports:
+    - name: http-web
+      port: 8080
+      protocol: TCP
