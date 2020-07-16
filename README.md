@@ -2,6 +2,10 @@
 
 Let's see what needs to be done to introduce custom metrics in Kyma using Prometheus Adapter
 
+https://www.metricfire.com/blog/prometheus-metrics-based-autoscaling-in-kubernetes <- my work has been based on this article
+
+And those certs in values.yaml are self-signed, nothing of value there.
+
 # magic spells
 
 You need [ko](https://github.com/google/ko) to apply deploy folder:
