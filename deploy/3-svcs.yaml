@@ -1,0 +1,33 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sample-metrics-8080
+  namespace: testing-monitoring
+  labels:
+    example: monitoring-custom-metrics
+    app: sample-metrics
+    # k8s-app: metrics
+spec:
+  selector:
+    app: sample-metrics
+  ports:
+    - name: http-web
+      port: 8080
+      protocol: TCP
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: sample-metrics-8081
+  namespace: testing-monitoring
+  labels:
+    k8s-app: metrics
+    app: sample-metrics
+    example: monitoring-custom-metrics
+spec:
+  selector:
+    app: sample-metrics
+  ports:
+    - name: http-web
+      port: 8081
+      protocol: TCP

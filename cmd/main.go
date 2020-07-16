@@ -32,6 +32,10 @@ func main() {
 		rw.Write([]byte("OK"))
 	})
 
+	go func() {
+		log.Fatal(http.ListenAndServe(":8081", nil))
+	}()
+
 	//Port 8080 to be redirected to Envoy proxy not reacheble by Prometheus
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
